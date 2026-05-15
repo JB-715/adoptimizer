@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Campaign {
+  id          String   @id @default(cuid())
+  name        String
+  impressions Int
+  clicks      Int
+  conversions Int
+  platform    String
+  budget      Float
+  startDate   String
+  endDate     String
+  status      String
+  ctr         Float
+  cr          Float
+  healthScore Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
